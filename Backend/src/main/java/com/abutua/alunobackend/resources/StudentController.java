@@ -22,10 +22,16 @@ import com.abutua.alunobackend.models.Student;
 @CrossOrigin
 
 public class StudentController {
-    
+
     private List<Student> objStudents = new ArrayList<>();
-    
-/*==================================================== */
+
+    private List<Student> objStudentsTable = Arrays.asList(
+        new Student(1,"marcelo da Silva nascimento","joao.silva@gmail.com","+55 11 99999-9999",456,3),
+         new Student(2,"Maria Oliveira Santos", "maria.oliveira@gmail.com", "+55 21 98765-4321", 123, 2),
+         new Student(3,"Luiz Gonzaga Souza", "luiz.gonzaga@gmail.com", "+55 31 99999-8888", 789, 1)
+    );
+
+    /* ==================================================== */
     @GetMapping("students/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable int id) {
 
@@ -36,18 +42,20 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
 
-/*=========================================================== */
+    /* =========================================================== */
     @GetMapping("students")
     public List<Student> getCourses() {
-        return objStudents;
+        List<Student> combinedList = new ArrayList<Student>();
+        combinedList.addAll(objStudents);
+        combinedList.addAll(objStudentsTable);
+        return combinedList;
     }
 
+    /* ============================================================ */
 
-/*============================================================ */
-
-@PostMapping("students")
+    @PostMapping("students")
     public ResponseEntity<Student> save(@RequestBody Student students) {
-        students.setId(objStudents.size() + 1);
+        students.setId((objStudents.size() + 1) + 3);
         objStudents.add(students);
 
         URI location = ServletUriComponentsBuilder

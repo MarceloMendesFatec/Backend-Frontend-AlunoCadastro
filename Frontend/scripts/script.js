@@ -6,6 +6,7 @@ var courses = [];
 
 
 loadCourses();
+loadStudents();
 
 function loadCourses(){
   $.ajax({
@@ -20,6 +21,17 @@ function loadCourses(){
     }
   })
 }
+
+
+function loadStudents(){
+  $.getJSON("http://localhost:8080/students", response => {
+    students = response
+    for (let stu of students) {
+      newRow(stu);
+    }
+  });
+}
+
 
 function saveStudent() {
   var newStudent = {
