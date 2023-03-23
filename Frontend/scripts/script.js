@@ -2,6 +2,24 @@ $('#inputPhone').mask('(00)00000-0000');//mascara para telefone
 
 var students = []; // array vazio para guardar os objetos de novos estudantes
 
+var courses = [];
+
+
+loadCourses();
+
+function loadCourses(){
+  $.ajax({
+    url: "http://localhost:8080/courses",
+    type: "GET",
+    async: "false",
+    success: (response) => {
+      courses = response;
+      for (let selectedCourse of courses) {
+        document.getElementById("inputCourse").innerHTML += `<option value= ${selectedCourse.id}>${selectedCourse.name}</option>`;
+      }
+    }
+  })
+}
 
 function saveStudent() {
   var newStudent = {
