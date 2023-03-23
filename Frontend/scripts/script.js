@@ -43,8 +43,20 @@ function saveStudent() {
     turn: document.querySelector('input[name="RadioDefault"]:checked').value,
   };  // objeto que recebe um novo aluno
 
-  students.push(newStudent); // acrescenta o novo objeto ao array 
-  newRow(newStudent); // adiciona uma nova linha na tabela com o objeto 
+  $.ajax({
+    url: "http://localhost:8080/students",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(newStudent),
+    success: (newStudent) => {
+      newRow(newStudent);// adiciona uma nova linha na tabela com o objeto 
+      students.push(newStudent);// acrescenta o novo objeto ao array 
+      document.getElementById("formStudent").reset();
+    }
+  })
+  
+
+   
 }
 
 
