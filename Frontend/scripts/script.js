@@ -14,10 +14,10 @@ function loadCourses(){
     type: "GET",
     async: "false",
     success: (response) => {
-      courses = response;
+      courses = response; // Atribui a lista de cursos da resposta à variável 'courses'
       for (let selectedCourse of courses) {
         document.getElementById("inputCourse").innerHTML += `<option value= ${selectedCourse.id}>${selectedCourse.name}</option>`;
-      }
+      } // Percorre a lista de cursos e adiciona cada um como uma opção no campo 'inputCourse'
     }
   })
 }
@@ -29,7 +29,10 @@ function loadStudents(){
     for (let stu of students) {
       newRow(stu);
     }
-  });
+  }); /*A resposta JSON é armazenada na variável "response" e, em seguida, é iterada usando um loop "for-of".
+Para cada objeto "student" na resposta, 
+a função "newRow" é chamada para adicionar 
+uma nova linha à tabela HTML exibindo as informações do estudante.*/ 
 }
 
 
@@ -47,7 +50,7 @@ function saveStudent() {
     url: "http://localhost:8080/students",
     type: "POST",
     contentType: "application/json",
-    data: JSON.stringify(newStudent),
+    data: JSON.stringify(newStudent), // converte o objeto para JSON
     success: (newStudent) => {
       newRow(newStudent);// adiciona uma nova linha na tabela com o objeto 
       students.push(newStudent);// acrescenta o novo objeto ao array 
