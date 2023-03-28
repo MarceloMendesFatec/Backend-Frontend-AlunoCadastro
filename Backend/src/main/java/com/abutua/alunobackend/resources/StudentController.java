@@ -28,9 +28,9 @@ public class StudentController {
 
     // Cria uma lista de objetos Student e inicializa a lista com três objetos.
     private List<Student> objStudentsTable = Arrays.asList(
-            new Student(1, "marcelo da Silva nascimento", "joao.silva@gmail.com", "+55 11 99999-9999", 456, 3),
-            new Student(2, "Maria Oliveira Santos", "maria.oliveira@gmail.com", "+55 21 98765-4321", 123, 2),
-            new Student(3, "Luiz Gonzaga Souza", "luiz.gonzaga@gmail.com", "+55 31 99999-8888", 789, 1));
+            new Student(1, "marcelo da Silva nascimento", "joao.silva@gmail.com", "+55 11 99999-9999","Java","Manhã"),
+            new Student(2, "Maria Oliveira Santos", "maria.oliveira@gmail.com", "+55 21 98765-4321","Python","Tarde"),
+            new Student(3, "Luiz Gonzaga Souza", "luiz.gonzaga@gmail.com", "+55 31 99999-8888", "Angular","Noite"));
 
             
     /*

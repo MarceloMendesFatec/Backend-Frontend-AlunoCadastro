@@ -5,18 +5,18 @@ public class Student {
     String name;
     String email;
     String phone;
-    int idCurso;
-    int period;
+    String course;
+    String period;
 
     public Student() {
     }
 
-    public Student( int id ,String name, String email, String phone, int idCurso, int period) {
+    public Student(int id, String name, String email, String phone, String course, String period) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.idCurso = idCurso;
+        this.course = course;
         this.period = period;
     }
 
@@ -52,20 +52,21 @@ public class Student {
         this.phone = phone;
     }
 
-    public int getIdCurso() {
-        return idCurso;
+    public String getCourse() {
+        return course;
     }
 
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
+    public void setCourse(String course) {
+        this.course = course;
     }
 
-    public int getPeriod() {
+    public String getPeriod() {
         return period;
     }
 
-    public void setPeriod(int period) {
+    public void setPeriod(String period) {
         this.period = period;
     }
+
 
 }

@@ -16,7 +16,7 @@ function loadCourses(){
     success: (response) => {
       courses = response; // Atribui a lista de cursos da resposta à variável 'courses'
       for (let selectedCourse of courses) {
-        document.getElementById("inputCourse").innerHTML += `<option value= ${selectedCourse.id}>${selectedCourse.name}</option>`;
+        document.getElementById("inputCourse").innerHTML += `<option value= ${selectedCourse.name}>${selectedCourse.name}</option>`;
       } // Percorre a lista de cursos e adiciona cada um como uma opção no campo 'inputCourse'
     }
   })
@@ -43,7 +43,7 @@ function saveStudent() {
     email: document.getElementById("inputEmail").value,
     phone: document.getElementById("inputPhone").value,
     course: document.getElementById("inputCourse").value,
-    turn: document.querySelector('input[name="RadioDefault"]:checked').value,
+    period: document.querySelector('input[name="RadioDefault"]:checked').value,
   };  // objeto que recebe um novo aluno
 
   $.ajax({
@@ -87,6 +87,6 @@ function newRow(students) {
   var courseNode = document.createTextNode(students.course);
   newRow.insertCell().appendChild(courseNode);// inserir o curso na tabela 
 
-  var turnNode = document.createTextNode(students.turn);
-  newRow.insertCell().appendChild(turnNode);// inserir o turno na tabela 
+  var periodNode = document.createTextNode(students.period);
+  newRow.insertCell().appendChild(periodNode);// inserir o turno na tabela 
 };
